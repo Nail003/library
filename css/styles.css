@@ -1,0 +1,48 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: lightgray;
+}
+
+.text_outline {
+    text-shadow: 1px 1px black;
+}
+
+.gradient_background {
+    background: rgb(117, 38, 117);
+    background: linear -gradient(160deg, rgba(117, 38, 117, 1) 0%, rgba(120, 29, 121, 1) 11%, rgba(164, 19, 137, 1) 30%, rgba(168, 20, 148, 1) 54%, rgba(184, 35, 162, 1) 77%, rgba(255, 0, 201, 1) 96%);
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 8px 16px;
+    color: white;
+    box-shadow: 0px 0px 16px black;
+}
+
+.add_book_button {
+    position: absolute;
+    bottom: 24px;
+    right: 24px;
+    color: white;
+    font-size: 32px;
+    padding: 8px;
+    border-radius: 50%;
+    width: 52px;
+    height: 52px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+.add_book_button:hover {
+    box-shadow: 0px 0px 8px purple;
+}
