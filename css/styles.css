@@ -28,8 +28,58 @@ header {
     box-shadow: 0px 0px 16px black;
 }
 
+table {
+    width: 100%;
+    padding: 0px 4px;
+    text-align: center;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+th {
+    text-transform: uppercase;
+    color: white;
+    text-shadow: 1px 1px black;
+    background-color: coral;
+    padding: 12px 4px;
+}
+
+
+td {
+    padding: 8px 4px;
+}
+
+td button {
+    border: none;
+    border-radius: 8px;
+    padding: 8px 16px;
+    background-color: darkslategray;
+    color: white;
+    transition: scale 100ms;
+}
+
+td button:hover {
+    scale: 1.1;
+}
+
+.book_read {
+    background-color: lightskyblue;
+    color: black;
+    font-weight: bold;
+}
+
+tr:nth-child(2n) {
+    background-color: white;
+}
+
+tr:nth-child(2n+1) {
+    background-color: lightcoral;
+    color: white;
+    text-shadow: 1px 1px black;
+}
+
 .add_book_button {
-    position: absolute;
+    position: fixed;
     bottom: 24px;
     right: 24px;
     color: white;

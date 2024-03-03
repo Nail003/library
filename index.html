@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <title>Library</title>
     <link rel="stylesheet" href="./css/styles.css">
-    <script src="./js/javascript.js"></script>
+    <script defer="true" src="./js/javascript.js"></script>
 </head>
 
 <body>
@@ -13,7 +13,27 @@
         <h1 class="text_outline">Library</h1>
         <h4 class="text_outline">Library for your Book Collection</>
     </header>
-    <main><Button class="add_book_button gradient_background text_outline">+</Button></main>
+    <main>
+        <table>
+            <tbody>
+                <tr>
+                    <th>#</th>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Pages</th>
+                    <th>Have Read</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Gintama</td>
+                    <td>Momkey</td>
+                    <td>321</td>
+                    <td><Button class="book_read">Yes</Button></td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+    <Button class="add_book_button gradient_background text_outline">+</Button>
     <footer></footer>
 </body>
 
