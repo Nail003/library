@@ -14,7 +14,11 @@ body {
 
 .gradient_background {
     background: rgb(117, 38, 117);
-    background: linear -gradient(160deg, rgba(117, 38, 117, 1) 0%, rgba(120, 29, 121, 1) 11%, rgba(164, 19, 137, 1) 30%, rgba(168, 20, 148, 1) 54%, rgba(184, 35, 162, 1) 77%, rgba(255, 0, 201, 1) 96%);
+    background: linear-gradient(160deg, rgba(117, 38, 117, 1) 0%, rgba(120, 29, 121, 1) 11%, rgba(164, 19, 137, 1) 30%, rgba(168, 20, 148, 1) 54%, rgba(184, 35, 162, 1) 77%, rgba(255, 0, 201, 1) 96%);
+}
+
+.no_display {
+    display: none;
 }
 
 header {
@@ -56,6 +60,7 @@ td button {
     background-color: darkslategray;
     color: white;
     transition: scale 100ms;
+    cursor: pointer;
 }
 
 td button:hover {
@@ -95,4 +100,57 @@ tr:nth-child(2n+1) {
 
 .add_book_button:hover {
     box-shadow: 0px 0px 8px purple;
+}
+
+.blur_background {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    backdrop-filter: blur(8px);
+    background-color: rgba(0, 0, 0, 0.4);
+    width: 100%;
+    height: 100vh;
+}
+
+form {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 16px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    padding: 32px 32px;
+    color: white;
+    border-radius: 12px;
+}
+
+form label {
+    font-size: 1.1rem;
+}
+
+form input {
+    font-size: 1.1rem;
+}
+
+form input[type="text"],
+form input[type="number"] {
+    padding: 0px 2px;
+}
+
+form button {
+    border: 2px solid white;
+    border-radius: 12px;
+    padding: 8px 0px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    background-color: rgba(40, 40, 40, 0);
+    transition: scale 150ms;
+    cursor: pointer;
+}
+
+form button:hover {
+    scale: 1.05;
 }

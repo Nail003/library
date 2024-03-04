@@ -39,8 +39,6 @@ function fillTableFromLibrary() {
         }
         table.appendChild(tr)
     }
-
-    console.log(table)
 }
 
 function refreshTable() {
@@ -59,6 +57,10 @@ Book.prototype.info = function () {
     return { title: this.title, author: this.author, pages: this.pages, have_read: this.have_read }
 }
 
+// Event Listeners
+function assignEventListener() {
+    document.querySelector("add_book_button")
+}
 
 // Mock
 const book1 = new Book("Gintama", "Monkey", "323", "Yes")
@@ -69,12 +71,6 @@ const book4 = new Book("Isekai Ojisan", "Ojisan", "56", "No")
 addBookToLibrary(book1)
 addBookToLibrary(book2)
 addBookToLibrary(book3)
-addBookToLibrary(book4)
-addBookToLibrary(book4)
-addBookToLibrary(book4)
-addBookToLibrary(book4)
-addBookToLibrary(book4)
-addBookToLibrary(book4)
 addBookToLibrary(book4)
 
 
