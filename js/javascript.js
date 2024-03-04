@@ -10,13 +10,16 @@ function fillTableFromLibrary() {
     const table = document.querySelector("tbody")
     let index = 1
 
+    // Empty Table Body (Not Table Head)
+    table.innerHTML = ""
+
     for (let book of library) {
         const tr = document.createElement("tr")
 
         // Indexing (backend does not have indexes so we do it here)
         const td = document.createElement("td")
         td.innerText = index++
-        tr.appendChild(td)
+        tr.appendChild(td.cloneNode(true))
 
         for (let key in book.info()) {
             const td = document.createElement("td")
@@ -24,10 +27,14 @@ function fillTableFromLibrary() {
             if (book.hasOwnProperty(key)) {
                 if (key === "have_read") {
                     const button = document.createElement("button")
-                    button.innerText = book[key]
+                    button.dataset.index = index - 2
+                    button.addEventListener("click", toggleHaveRead)
 
-                    if (book[key] === "Yes") {
+                    if (book[key]) {
                         button.classList = "book_read"
+                        button.innerText = "Yes"
+                    } else {
+                        button.innerText = "No"
                     }
 
                     td.appendChild(button)
@@ -37,6 +44,15 @@ function fillTableFromLibrary() {
                 tr.appendChild(td)
             }
         }
+
+        td.innerText = ""
+        const button = document.createElement("button")
+        button.innerText = "Delete"
+        button.dataset.index = index - 2
+        button.addEventListener("click", deleteBook)
+        td.appendChild(button)
+        tr.appendChild(td)
+
         table.appendChild(tr)
     }
 }
@@ -58,15 +74,80 @@ Book.prototype.info = function () {
 }
 
 // Event Listeners
+// Shared DOM Elements
+const createNewBookPanel = document.querySelector("#create_new_book_panel")
+
+// Events
 function assignEventListener() {
-    document.querySelector("add_book_button")
+    const addBookButton = document.querySelector(".add_book_button")
+    const createBookButton = document.querySelector("#create_book_button")
+    const closeBookPanelButton = document.querySelector("#close_book_panel_button")
+    const blurBackground = document.querySelector(".blur_background")
+
+    // Open New Book Panel
+    addBookButton.addEventListener("click", openNewBookPanel)
+
+    // Close New Book Panel
+    closeBookPanelButton.addEventListener("click", closeNewBookPanel)
+    blurBackground.addEventListener("click", closeNewBookPanel)
+
+    // Create New Book
+    createBookButton.addEventListener("click", createNewBook)
+}
+
+function openNewBookPanel(e) {
+    if (e) e.preventDefault()
+    createNewBookPanel.classList = ""
+}
+
+function closeNewBookPanel(e) {
+    if (e) e.preventDefault()
+    createNewBookPanel.classList = "no_display"
+}
+
+function createNewBook(e) {
+    e.preventDefault()
+
+    const title = document.querySelector("#title")
+    const author = document.querySelector("#author")
+    const pages = document.querySelector("#pages")
+    const haveRead = document.querySelector("#have_read")
+
+    const newBook = new Book(title.value, author.value, pages.value, haveRead.checked)
+    library.push(newBook)
+
+    title.value = ""
+    author.value = ""
+    pages.value = ""
+
+    closeNewBookPanel()
+
+    refreshTable()
+}
+
+function deleteBook(e) {
+    e.preventDefault()
+
+    let index = e.target.dataset.index
+    library.splice(index, 1)
+
+    refreshTable()
+}
+
+function toggleHaveRead(e) {
+    e.preventDefault()
+
+    let index = e.target.dataset.index
+    library[index].have_read = !library[index].have_read
+
+    refreshTable()
 }
 
 // Mock
-const book1 = new Book("Gintama", "Monkey", "323", "Yes")
-const book2 = new Book("One Punch Man", "One", "121", "Yes")
-const book3 = new Book("One Piece", "Oda", "1109", "Yes")
-const book4 = new Book("Isekai Ojisan", "Ojisan", "56", "No")
+const book1 = new Book("Gintama", "Monkey", "323", false)
+const book2 = new Book("One Punch Man", "One", "121", false)
+const book3 = new Book("One Piece", "Oda", "1109", false)
+const book4 = new Book("Isekai Ojisan", "Ojisan", "56", true)
 
 addBookToLibrary(book1)
 addBookToLibrary(book2)
@@ -75,3 +156,4 @@ addBookToLibrary(book4)
 
 
 fillTableFromLibrary()
+assignEventListener()

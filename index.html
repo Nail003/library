@@ -15,20 +15,25 @@
     </header>
     <main>
         <table>
-            <tbody>
+            <thead>
                 <tr>
                     <th>#</th>
                     <th>Title</th>
                     <th>Author</th>
                     <th>Pages</th>
                     <th>Have Read</th>
+                    <th>Trash</th>
                 </tr>
+            </thead>
+            <tbody>
+
                 <tr>
                     <td>0</td>
                     <td>Gintama</td>
                     <td>Momkey</td>
                     <td>321</td>
-                    <td><Button class="book_read">Yes</Button></td>
+                    <td><button class="book_read">Yes</button></td>
+                    <td><button id="delete_button">Delete</button></td>
                 </tr>
             </tbody>
         </table>
@@ -36,18 +41,18 @@
             <div class="blur_background"></div>
             <form class="gradient_background" action="">
                 <label class="text_outline" for="title">Title</label>
-                <input type="text" maxlength="32" name="title" id="title">
+                <input type="text" minlength="1" maxlength="32" name="title" id="title">
                 <label class="text_outline" for="author">Author</label>
-                <input type="text" maxlength="32" name="author" id="author">
+                <input type="text" minlength="1" maxlength="32" name="author" id="author">
                 <label class="text_outline" for="pages">Pages</label>
                 <input type="number" min="0" max="99999" name="pages" id="pages">
                 <label class="text_outline" for="have_read">Have Read</label>
                 <input type="checkbox" name="have_read" id="have_read">
-                <button class="text_outline">Cancel</button>
-                <button type="submit" class="text_outline">Create</button>
+                <button id="close_book_panel_button" class="text_outline">Cancel</button>
+                <button id="create_book_button" type="submit" class="text_outline">Create</button>
             </form>
         </div>
-        <Button class="add_book_button gradient_background text_outline">+</Button>
+        <button class="add_book_button gradient_background text_outline">+</button>
     </main>
     <footer></footer>
 </body>
