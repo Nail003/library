@@ -144,16 +144,23 @@ function toggleHaveRead(e) {
 }
 
 // Mock
-const book1 = new Book("Gintama", "Monkey", "323", false)
+const book1 = new Book("Gintama", "Monkey", "323", true)
 const book2 = new Book("One Punch Man", "One", "121", false)
 const book3 = new Book("One Piece", "Oda", "1109", false)
 const book4 = new Book("Isekai Ojisan", "Ojisan", "56", true)
 
-addBookToLibrary(book1)
-addBookToLibrary(book2)
-addBookToLibrary(book3)
-addBookToLibrary(book4)
-
+addBookToLibrary(Object.assign(Object.create(Object.getPrototypeOf(book1)), book1))
+addBookToLibrary(Object.assign(Object.create(Object.getPrototypeOf(book2)), book2))
+addBookToLibrary(Object.assign(Object.create(Object.getPrototypeOf(book3)), book3))
+addBookToLibrary(Object.assign(Object.create(Object.getPrototypeOf(book4)), book4))
+addBookToLibrary(Object.assign(Object.create(Object.getPrototypeOf(book1)), book1))
+addBookToLibrary(Object.assign(Object.create(Object.getPrototypeOf(book2)), book2))
+addBookToLibrary(Object.assign(Object.create(Object.getPrototypeOf(book3)), book3))
+addBookToLibrary(Object.assign(Object.create(Object.getPrototypeOf(book4)), book4))
+addBookToLibrary(Object.assign(Object.create(Object.getPrototypeOf(book1)), book1))
+addBookToLibrary(Object.assign(Object.create(Object.getPrototypeOf(book2)), book2))
+addBookToLibrary(Object.assign(Object.create(Object.getPrototypeOf(book3)), book3))
+addBookToLibrary(Object.assign(Object.create(Object.getPrototypeOf(book4)), book4))
 
 fillTableFromLibrary()
 assignEventListener()
