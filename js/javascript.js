@@ -76,17 +76,6 @@ class Book {
     }
 }
 
-// function Book(title, author, pages, have_read) {
-//     this.title = title
-//     this.author = author
-//     this.pages = pages
-//     this.have_read = have_read
-// }
-
-// Book.prototype.info = function () {
-//     return { title: this.title, author: this.author, pages: this.pages, have_read: this.have_read }
-// }
-
 // Event Listeners
 // Shared DOM Elements
 const createNewBookPanel = document.querySelector("#create_new_book_panel")
