@@ -62,16 +62,30 @@ function refreshTable() {
 }
 
 // Book Class
-function Book(title, author, pages, have_read) {
-    this.title = title
-    this.author = author
-    this.pages = pages
-    this.have_read = have_read
+
+class Book {
+    constructor(title, author, pages, have_read) {
+        this.title = title
+        this.author = author
+        this.pages = pages
+        this.have_read = have_read
+    }
+
+    info() {
+        return { title: this.title, author: this.author, pages: this.pages, have_read: this.have_read }
+    }
 }
 
-Book.prototype.info = function () {
-    return { title: this.title, author: this.author, pages: this.pages, have_read: this.have_read }
-}
+// function Book(title, author, pages, have_read) {
+//     this.title = title
+//     this.author = author
+//     this.pages = pages
+//     this.have_read = have_read
+// }
+
+// Book.prototype.info = function () {
+//     return { title: this.title, author: this.author, pages: this.pages, have_read: this.have_read }
+// }
 
 // Event Listeners
 // Shared DOM Elements
