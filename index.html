@@ -42,11 +42,11 @@
             <div class="blur_background"></div>
             <form class="gradient_background" action="">
                 <label class="text_outline" for="title">Title</label>
-                <input type="text" minlength="1" maxlength="32" name="title" id="title">
+                <input type="text" minlength="1" maxlength="32" name="title" id="title" required>
                 <label class="text_outline" for="author">Author</label>
-                <input type="text" minlength="1" maxlength="32" name="author" id="author">
+                <input type="text" minlength="1" maxlength="32" name="author" id="author" required>
                 <label class="text_outline" for="pages">Pages</label>
-                <input type="number" min="0" max="99999" name="pages" id="pages">
+                <input type="number" min="0" max="100000" name="pages" id="pages" required>
                 <label class="text_outline" for="have_read">Have Read</label>
                 <input type="checkbox" name="have_read" id="have_read">
                 <button id="close_book_panel_button" class="text_outline">Cancel</button>

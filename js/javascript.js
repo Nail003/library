@@ -111,10 +111,17 @@ function closeNewBookPanel(e) {
 function createNewBook(e) {
     e.preventDefault()
 
+    const form = document.querySelector("form")
     const title = document.querySelector("#title")
     const author = document.querySelector("#author")
     const pages = document.querySelector("#pages")
     const haveRead = document.querySelector("#have_read")
+
+    // Validate form
+    if (!form.checkValidity()) {
+        form.reportValidity()
+        return
+    }
 
     const newBook = new Book(title.value, author.value, pages.value, haveRead.checked)
     library.push(newBook)
@@ -146,7 +153,7 @@ function toggleHaveRead(e) {
     refreshTable()
 }
 
-// Mock
+// Mock Data
 const book1 = new Book("Gintama", "Monkey", "323", true)
 const book2 = new Book("One Punch Man", "One", "121", false)
 const book3 = new Book("One Piece", "Oda", "1109", false)
